@@ -7,6 +7,8 @@ This library is Free Software under GPLv3 or later. Make sure to understand the 
 
 It was tested on ADVPL and Harbour.
 
+This documentation can also be found in [Portuguese](LEIAME.md).
+
 ## Index
 
 * Associative Arrays

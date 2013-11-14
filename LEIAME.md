@@ -8,6 +8,8 @@ Tenha certeza de ter enter a licença antes de usar essa biblioteca.
 
 Foi testado com ADVPL e Harbour.
 
+This documentation can also be found in [English](README.md).
+
 ## Índice
 
 * Vetores Associativos
