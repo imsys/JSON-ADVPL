@@ -1,4 +1,4 @@
-JSON e Vetor Associativo para ADVPL
+JSON e Vetor Associativo para AdvPL
 ===================================
 
 JSON e Vetores Associativos são bem úteis para a troca de dados entre programas.
@@ -6,7 +6,7 @@ JSON e Vetores Associativos são bem úteis para a troca de dados entre programa
 Essa biblioteca é Software Livre dentro dos termos da GPLv3 ou posterior.
 Tenha certeza de ter enter a licença antes de usar essa biblioteca.
 
-Foi testado com ADVPL e Harbour.
+Foi testado com AdvPL e Harbour.
 
 This documentation can also be found in [English](README.md).
 
@@ -148,7 +148,7 @@ Converte strings JSON em qualquer valor que contenha.
   234e-7 = 0.0000234  
   57e3   = 57000
 
-* Não sei como usar Unicode em ADVPL, por isso a expressão \uXXXX converte para ASCII. Valores fora da tabela ASCII se tornam '?' (pontos de interrogação).
+* Não sei como usar Unicode em AdvPL, por isso a expressão \uXXXX converte para ASCII. Valores fora da tabela ASCII se tornam '?' (pontos de interrogação).
 
 @param cJstr - A string JSON que você deseja converter
 @return - Resultado da conversão no formato apropriado. Retorna Nil em caso de um JSON mal formatado.
@@ -158,7 +158,7 @@ Converte strings JSON em qualquer valor que contenha.
 
 ### (User) Function: ToJson(uAnyVar)
 
-Converte valor ADVPL em string JSON  
+Converte valor AdvPL em string JSON  
 Valores aceitos: Strings, Números, Lógicos, Nil, Vetores e Vetores Associativos (Objetos SHash)
 	 
 #### Exemplo:

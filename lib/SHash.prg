@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------*\
- * SHASH - A Simple Hash (Associative Array) for ADVPL
+ * SHASH - A Simple Hash (Associative Array) for AdvPL
  * Copyright (C) 2013  Arthur Helfstein Fragoso
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
  * 
  * This class is an adapted version of Marinaldo de Jesus' THASH Class:
  *
- * https://code.google.com/p/totvs-advpl-naldodj/source/browse/trunk/templates/P10/ndj_01/Projeto/NDJLib/NDJLIB022.prg
+ * https://code.google.com/p/totvs-AdvPL-naldodj/source/browse/trunk/templates/P10/ndj_01/Projeto/NDJLib/NDJLIB022.prg
  *
  * See the aarray.ch header file for instruction on how to use it.
  * 

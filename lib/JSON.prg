@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------*\
- * JSON for ADVPL
+ * JSON for AdvPL
  * Copyright (C) 2013  Arthur Helfstein Fragoso
  *
  * This program is free software: you can redistribute it and/or modify
@@ -78,7 +78,7 @@
  *  * Numbers accept the Scientific E Notation
  *    234e-7 = 0.0000234
  *    57e3   = 57000
- *  * I'm don't know how I can make an Unicode or UTF-8 character in ADVPL,
+ *  * I'm don't know how I can make an Unicode or UTF-8 character in AdvPL,
  *    So, the json \uXXXX converts an ASCII code. Values outside the ASCII table becomes '?' (quotation marks).
  *
  * @param cJstr - The JSON string you want to convert from
@@ -94,7 +94,7 @@ Return GetJsonVal(cJstr)[1]
 
 /**
  * (User) Function: ToJson(uAnyVar)
- * Converts ADVPLs value into a JSON string
+ * Converts AdvPLs value into a JSON string
  * Accepted values: Strings, Numbers, Logicals, Nil, Arrays and Associative Arrays (SHash Objects)
  *
  * Example:
