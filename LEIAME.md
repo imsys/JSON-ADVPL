@@ -317,7 +317,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ## Por que GPL?
 
-Para entender porque usei GPL ao invés de LGPL nessa biblioteca, leia isso: <https://www.gnu.org/philosophy/why-not-lgpl.html>.
+Para entender porque usei GPL ao invés de LGPL nessa biblioteca, leia: <https://www.gnu.org/philosophy/why-not-lgpl.html>.
 
 É bem facil tornar seu código livre, você pode ver instruções aqui: <http://www.gnu.org/licenses/gpl-howto.html>
 
