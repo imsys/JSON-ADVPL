@@ -146,7 +146,7 @@ Converts from a JSON string into any value it holds
 * Numbers accept the Scientific E Notation  
   234e-7 = 0.0000234  
   57e3   = 57000
-* I'm don't know how I can make an Unicode or UTF-8 character in Clipper/ADVPL, so the json \uXXXX converts an ASCII code. Values outside the ASCII table becomes '?' (quotation marks).
+* I'm don't know how I can make an Unicode or UTF-8 character in ADVPL, so the json \uXXXX converts an ASCII code. Values outside the ASCII table becomes '?' (quotation marks).
 
 @param cJstr - The JSON string you want to convert from  
 @return - The converted JSON string, it can be any type. Or Nil in case of a bad formatted JSON string. 
