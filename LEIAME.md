@@ -1,4 +1,4 @@
-JSON e Vetor Associativo para AdvPL
+JSON e Vetores Associativos para AdvPL
 ===================================
 
 JSON e Vetores Associativos são bem úteis para a troca de dados entre programas.

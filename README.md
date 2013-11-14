@@ -1,5 +1,5 @@
-JSON and Associative Array for AdvPL
-====================================
+JSON and Associative Arrays for AdvPL
+=====================================
 
 JSON and Associative Arrays are very useful for interchanging data between different programs.
 
