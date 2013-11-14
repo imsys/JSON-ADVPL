@@ -31,15 +31,15 @@ This documentation can also be found in [English](README.md).
 
 ### Como adicionar suporte à vetores Vetores Associativos
 
-1 - Adicione o arquivo SHash.prg em seu projeto;
+1. Adicione o arquivo SHash.prg em seu projeto;
 
-2 - Compile SHash.prg.
+2. Compile SHash.prg.
 
-3 - Inclua o arquivo cabeçalho em todo projeto que precisar usá-lo:
+3. Inclua o arquivo cabeçalho em todo projeto que precisar usá-lo:
 
         #Include "aarray.ch"
 
-4 - Use-o. ;)
+4. Use-o. ;)
 
 
 ### Como usar Vetores Associativos

@@ -30,15 +30,15 @@ This documentation can also be found in [Portuguese](LEIAME.md).
 
 ### How to add Associative Arrays support
 
-1 - Add the file SHash.prg to your project.
+1. Add the file SHash.prg to your project.
 
-2 - Compile SHash.prg.
+2. Compile SHash.prg.
 
-3 - Include the header file to any project you want to use it:
+3. Include the header file to any project you want to use it:
 
         #Include "aarray.ch"
 
-4 - Use it. ;)
+4. Use it. ;)
 
 
 ### How to use Associative Arrays
@@ -110,12 +110,13 @@ The SHash object has the aData array that stores all the data, so you can easily
 1. Add the files JSON.prg and SHash.prg to your project.
 
 2. Compile JSON.prg and SHash.prg.
+
 3. Include the header files to any project you want to use it:
 
         #Include "aarray.ch"
         #Include "json.ch"
 
-4 - See the functions documentation, it's very easy to use it. ;)
+4. See the functions documentation, it's very easy to use it. ;)
 
 
  * Note: Thanks to the preprocessor we can call user functions without the U_, look at the aarray.ch header file to understand it better.
