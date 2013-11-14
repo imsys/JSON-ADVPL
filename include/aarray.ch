@@ -104,11 +104,11 @@
 
 		#xtranslate \[\#<k>\] := <v>        => :Set(<k>,<v>)
 		#xtranslate \[\#<k>\]               => :Get(<k>)
-		#xtranslate Array(#)                => SHash():New()
+		#xtranslate Array(\#)               => SHash():New()
 	#ELSE
 		#xtranslate \[\#<k>\] := <v>        => \[<k>\] := <v>
 		#xtranslate \[\#<k>\]               => \[<k>\]
-		#xtranslate Array(#)                => {=>}    
+		#xtranslate Array(\#)               => \{\=\>\}    
 	#ENDIF
 
 #ENDIF
