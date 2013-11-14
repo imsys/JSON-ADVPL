@@ -4,7 +4,7 @@ JSON e Vetores Associativos para AdvPL
 JSON e Vetores Associativos são bem úteis para a troca de dados entre programas.
 
 Essa biblioteca é Software Livre dentro dos termos da GPLv3 ou posterior.
-Tenha certeza de ter enter a licença antes de usar essa biblioteca.
+Tenha certeza de entender a licença antes de usar essa biblioteca.
 
 Foi testado com AdvPL e Harbour.
 
@@ -144,13 +144,13 @@ Converte strings JSON em qualquer valor que contenha.
 
 #### Informações Adicionais:
 
-* É aceito Notação Científica E nos números
+* É aceito Notação Científica E nos números  
   234e-7 = 0.0000234  
   57e3   = 57000
 
 * Não sei como usar Unicode em AdvPL, por isso a expressão \uXXXX converte para ASCII. Valores fora da tabela ASCII se tornam '?' (pontos de interrogação).
 
-@param cJstr - A string JSON que você deseja converter
+@param cJstr - A string JSON que você deseja converter  
 @return - Resultado da conversão no formato apropriado. Retorna Nil em caso de um JSON mal formatado.
 
 
