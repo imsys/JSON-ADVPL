@@ -24,7 +24,7 @@
 \*----------------------------------------------------------------------*/
 
 #include "msobject.ch"
-#include "SHASH.ch"
+#include "shash.ch"
 
 /*/
 	CLASS:        SHASH
