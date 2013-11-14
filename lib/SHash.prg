@@ -42,11 +42,11 @@ CLASS SHASH
 
 	METHOD ClassName()
 
-	METHOD GetAtProperty( uPropertyKey )
-	METHOD GetPropertyValue( uPropertyKey , uDefaultValue )
-	METHOD SetProperty( uPropertyKey , uValue )
-	METHOD RemoveProperty( uPropertyKey )
-	METHOD GetAllProperties( )
+	METHOD GetAt( uPropertyKey )
+	METHOD Get( uPropertyKey , uDefaultValue )
+	METHOD Set( uPropertyKey , uValue )
+	METHOD Remove( uPropertyKey )
+	METHOD GetAll( )
 
 ENDCLASS
 
@@ -78,13 +78,13 @@ METHOD ClassName() CLASS SHASH
 Return( Self:cClassName )
 
 /*/
-	METHOD:		GetAtProperty
+	METHOD:		GetAt
 	Autor:		Marinaldo de Jesus
 	Data:		04/12/2011
 	Descricao:	Obter a Posicao da Propriedade Passada por parametro e de acordo com a Secao
-	Sintaxe:	SHASH():GetAtProperty( uPropertyKey ) -> nATProperty
+	Sintaxe:	SHASH():GetAt( uPropertyKey ) -> nATProperty
 /*/
-METHOD GetAtProperty( uPropertyKey ) CLASS SHASH
+METHOD GetAt( uPropertyKey ) CLASS SHASH
 
 	Local nATProperty	:= 0
 
@@ -97,13 +97,13 @@ METHOD GetAtProperty( uPropertyKey ) CLASS SHASH
 Return( nATProperty )
 
 /*/
-	METHOD:		GetPropertyValue
+	METHOD:		Get
 	Autor:		Marinaldo de Jesus
 	Data:		04/12/2011
 	Descricao:	Obter o valor da Propriedade Passada por parametro e de acordo com a Secao
-	Sintaxe:	SHASH():GetPropertyValue( uPropertyKey , uDefaultValue ) -> uPropertyValue
+	Sintaxe:	SHASH():Get( uPropertyKey , uDefaultValue ) -> uPropertyValue
 /*/
-METHOD GetPropertyValue( uPropertyKey , uDefaultValue ) CLASS SHASH
+METHOD Get( uPropertyKey , uDefaultValue ) CLASS SHASH
 
 	Local uPropertyValue	:= "@__PROPERTY_NOT_FOUND__@"
 
@@ -111,7 +111,7 @@ METHOD GetPropertyValue( uPropertyKey , uDefaultValue ) CLASS SHASH
 
 	BEGIN SEQUENCE
 
-		nProperty			:= Self:GetAtProperty( @uPropertyKey )
+		nProperty			:= Self:GetAt( @uPropertyKey )
 		IF ( nProperty == 0 )
 			BREAK
 		EndIF
@@ -135,9 +135,9 @@ Return( uPropertyValue )
 	Autor:		Marinaldo de Jesus
 	Data:		04/12/2011
 	Descricao:	Adiciona ou Edita uma propriedade
-	Sintaxe:	SHASH():SetProperty( uPropertyKey , uValue ) -> lSuccess
+	Sintaxe:	SHASH():Set( uPropertyKey , uValue ) -> lSuccess
 /*/
-METHOD SetProperty( uPropertyKey , uValue ) CLASS SHASH
+METHOD Set( uPropertyKey , uValue ) CLASS SHASH
 
 	Local lSuccess			:= .F.
 	
@@ -145,7 +145,7 @@ METHOD SetProperty( uPropertyKey , uValue ) CLASS SHASH
 
 	BEGIN SEQUENCE
 
-		nProperty			:= Self:GetAtProperty( @uPropertyKey )
+		nProperty			:= Self:GetAt( @uPropertyKey )
 
 		IF ( nProperty == 0 )
 			aAdd( Self:aData , Array( SPROPERTY_ELEMENTS ) )
@@ -162,13 +162,13 @@ METHOD SetProperty( uPropertyKey , uValue ) CLASS SHASH
 Return( lSuccess )
 
 /*/
-	METHOD:		RemoveProperty
+	METHOD:		Remove
 	Autor:		Marinaldo de Jesus
 	Data:		04/12/2011
 	Descricao:	Remover Determinada Propriedade
-	Sintaxe:	SHASH():RemoveProperty( uPropertyKey ) -> lSuccess
+	Sintaxe:	SHASH():Remove( uPropertyKey ) -> lSuccess
 /*/
-METHOD RemoveProperty( uPropertyKey ) CLASS SHASH
+METHOD Remove( uPropertyKey ) CLASS SHASH
 
 	Local lSuccess		:= .F.
 	
@@ -176,7 +176,7 @@ METHOD RemoveProperty( uPropertyKey ) CLASS SHASH
 
 	BEGIN SEQUENCE
 
-		nProperty		:= Self:GetAtProperty( @uPropertyKey )
+		nProperty		:= Self:GetAt( @uPropertyKey )
 		IF ( nProperty == 0 )
 			BREAK
 		EndIF
@@ -191,13 +191,13 @@ METHOD RemoveProperty( uPropertyKey ) CLASS SHASH
 Return( lSuccess )
 
 /*/
-	METHOD:		GetAllProperties
+	METHOD:		GetAll
 	Autor:		Marinaldo de Jesus
 	Data:		04/12/2011
 	Descricao:	Retornar todas as propriedades
-	Sintaxe:	SHASH():GetAllProperties( ) -> aAllProperties
+	Sintaxe:	SHASH():GetAll( ) -> aAllProperties
 /*/
-METHOD GetAllProperties() CLASS SHASH
+METHOD GetAll() CLASS SHASH
 Return( Self:aData )
 
 

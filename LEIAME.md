@@ -94,8 +94,8 @@ Dê uma olhada:
 Isto é traduzido por isso pelo pré-compilador:
 
     aaFriends := SHash():New()
-    aaFriends:SetProperty("David", SHash():New())
-    aaFriends:GetPropertyValue("David"):SetProperty("Account", 187204)
+    aaFriends:Set("David", SHash():New())
+    aaFriends:Get("David"):Set("Account", 187204)
 
 Os objetos SHash contêm o vetor SHash que armazena todos os dados, então é muito fácil acessar tudo através de um loop:
 

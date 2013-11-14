@@ -83,8 +83,8 @@
  * 
  * is translated to this by the precompiler:
  * aaFriends := SHash():New()
- * aaFriends:SetProperty("David", SHash():New())
- * aaFriends:GetPropertyValue("David"):SetProperty("Account", 187204)
+ * aaFriends:Set("David", SHash():New())
+ * aaFriends:Get("David"):Set("Account", 187204)
  *
  * The SHash object has the aData array that stores all the data, so you
  * can easily access all the data thought a loop:
@@ -102,8 +102,8 @@
 	#IFNDEF __HARBOUR__
 		#include "shash.ch" 
 
-		#xtranslate \[\#<k>\] := <v>        => :SetProperty(<k>,<v>)
-		#xtranslate \[\#<k>\]               => :GetPropertyValue(<k>)
+		#xtranslate \[\#<k>\] := <v>        => :Set(<k>,<v>)
+		#xtranslate \[\#<k>\]               => :Get(<k>)
 		#xtranslate Array(#)                => SHash():New()
 	#ELSE
 		#xtranslate \[\#<k>\] := <v>        => \[<k>\] := <v>

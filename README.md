@@ -93,8 +93,8 @@ Take a look at it working, this:
 is translated to this by the precompiler:
 
     aaFriends := SHash():New()
-    aaFriends:SetProperty("David", SHash():New())
-    aaFriends:GetPropertyValue("David"):SetProperty("Account", 187204)
+    aaFriends:Set("David", SHash():New())
+    aaFriends:Get("David"):Set("Account", 187204)
 
 The SHash object has the aData array that stores all the data, so you can easily access all the data thought a loop:
 
