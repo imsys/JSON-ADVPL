@@ -133,11 +133,11 @@ Function ToJson (uAnyVar)
 		case cType == "N"
 			return CvalToChar(uAnyVar)
 		case cType == "L"
-			return if(uAnyVar,"True","False") 
+			return if(uAnyVar,"true","false") 
 		case cType == "D"
 			return '"'+ DtoS(uAnyVar) +'"'
 		case cType == "U"
-			return "Null"
+			return "null"
 		case cType == "A"
 			cRet := '['
 			For nI := 1 to len(uAnyVar)
@@ -730,17 +730,17 @@ Static Function JsonTFN(cJstr)
     
 	BEGIN SEQUENCE
 
-	    cTmpStr := UPPER(SubStr(cJstr, 1, 5))
+	    cTmpStr := lower(SubStr(cJstr, 1, 5))
 	    
-	    if cTmpStr == "FALSE"
+	    if cTmpStr == "false"
 	    	return {.F., 5}
 	    endif
 	    
 	    cTmpStr := SubStr(cTmpStr, 1, 4)
 	    
-	    if cTmpStr == "TRUE"
+	    if cTmpStr == "true"
 	    	return {.T., 4}   	
-	    elseif cTmpStr == "NULL"
+	    elseif cTmpStr == "null"
 	    	return {Nil, 4}
 	    endif 
     
