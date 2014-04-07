@@ -102,6 +102,7 @@
 	#IFNDEF __HARBOUR__
 		#include "shash.ch" 
 
+		#xtranslate \[\#<k>,<l> => :Get(<k>)\[\#<l>
 		#xtranslate \[\#<k>\] := <v>        => :Set(<k>,<v>)
 		#xtranslate \[\#<k>\]               => :Get(<k>)
 		#xtranslate Array(\#)               => SHash():New()
