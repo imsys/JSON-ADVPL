@@ -3,7 +3,7 @@ JSON and Associative Arrays for AdvPL
 
 JSON and Associative Arrays are very useful for interchanging data between different programs.
 
-This library is Free Software under GPLv3 or later. Make sure to understand the license before using it.
+This library is Free Software under LGPLv3 or later.
 
 It was tested on AdvPL and Harbour.
 
@@ -301,8 +301,8 @@ Reads JSON from a JSON file.
 Copyright (C) 2013  Arthur Helfstein Fragoso
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
+it under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
@@ -310,15 +310,5 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
+You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-## Why GPL?
-
-To understand why I used GPL instead of LGPL in this library, read this: <https://www.gnu.org/philosophy/why-not-lgpl.html>.
-
-It's very easy to make your code free, you can find instructions here: <http://www.gnu.org/licenses/gpl-howto.html>
-
-If you need help, you can contact me by email:
-
-arthur at life.net.br

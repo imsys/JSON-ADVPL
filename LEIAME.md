@@ -3,8 +3,7 @@ JSON e Vetores Associativos para AdvPL
 
 JSON e Vetores Associativos são bem úteis para a troca de dados entre programas.
 
-Essa biblioteca é Software Livre dentro dos termos da GPLv3 ou posterior.
-Tenha certeza de entender a licença antes de usar essa biblioteca.
+Essa biblioteca é Software Livre dentro dos termos da LGPLv3 ou posterior.
 
 Foi testado com AdvPL e Harbour.
 
@@ -303,8 +302,8 @@ Lê um arquivo JSON.
 Copyright (C) 2013  Arthur Helfstein Fragoso
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
+it under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
@@ -312,15 +311,5 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
+You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-## Por que GPL?
-
-Para entender porque usei GPL ao invés de LGPL nessa biblioteca, leia: <https://www.gnu.org/philosophy/why-not-lgpl.html>.
-
-É bem facil tornar seu código livre, você pode ver instruções aqui: <http://www.gnu.org/licenses/gpl-howto.html>
-
-Se precisar de ajuda, pode entrar em contato comigo pelo email:
-
-arthur arroba life.net.br
