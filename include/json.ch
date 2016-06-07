@@ -81,7 +81,7 @@
 	 *  * Numbers accept the Scientific E Notation
 	 *    234e-7 = 0.0000234
 	 *    57e3   = 57000
-	 *  * I'm don't know how I can make an Unicode or UTF-8 character in Clipper/AdvPL,
+	 *  * I don't know how I can make an Unicode or UTF-8 character in Clipper/AdvPL,
 	 *    So, the json \uXXXX converts an ASCII code. Values outside the ASCII table becomes '?' (quotation marks).
 	 *
 	 * @param cJstr - The JSON string you want to convert from
