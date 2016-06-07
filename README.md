@@ -36,7 +36,9 @@ This documentation can also be found in [Portuguese](LEIAME.md).
 
 3. Include the header file to any project you want to use it:
 
-        #Include "aarray.ch"
+    ```AdvPL
+    #Include "aarray.ch"
+    ```
 
 4. Use it. ;)
 
@@ -47,38 +49,40 @@ It's easier to learn from examples, isn't it?
 
 Example:
 
-    // Start an Associative Array
-    aaFriends := Array(#)
-    
-    // Start another another Associative Array on top of the other
-    aaFriends[#"Arthur"] := Array(#)
-    
-    // Set values:
-    aaFriends[#"Arthur"][#"Name"] := "Arthur"
-    aaFriends[#"Arthur"][#"Account"] := 230251
-    aaFriends[#"Arthur"][#"Work"] := "Software Developer"
-    
-    // Start a new Associative Array and set values
-    aaFriends[#"David"] := Array(#)
-    aaFriends[#"David"][#"Name"] := "David"
-    aaFriends[#"David"][#"Account"] := 187204
-    aaFriends[#"David"][#"Work"] := "Web Designer"
-    
-    // Let's do something interesting:
-    
-    aaFriends[#"David"][#"Best Friend"] := aaFriends[#"Arthur"]
-    
-    // And test it:
-    
-    Alert (aaFriends[#"David"][#"Best Friend"][#"Name"])
-    Alert (aaFriends[#"David"][#"Best Friend"][#"Work"])
-    
-    // We can also mix it with the regular Array:
-    aaFriends[#"Arthur"][#"Friends"] := Array(1)
-    aaFriends[#"Arthur"][#"Friends"][1] := aaFriends[#"David"]
-    
-    Alert (aaFriends[#"Arthur"][#"Friends"][1][#"Name"])
+```AdvPL
 
+// Start an Associative Array
+aaFriends := Array(#)
+
+// Start another another Associative Array on top of the other
+aaFriends[#"Arthur"] := Array(#)
+
+// Set values:
+aaFriends[#"Arthur"][#"Name"] := "Arthur"
+aaFriends[#"Arthur"][#"Account"] := 230251
+aaFriends[#"Arthur"][#"Work"] := "Software Developer"
+
+// Start a new Associative Array and set values
+aaFriends[#"David"] := Array(#)
+aaFriends[#"David"][#"Name"] := "David"
+aaFriends[#"David"][#"Account"] := 187204
+aaFriends[#"David"][#"Work"] := "Web Designer"
+
+// Let's do something interesting:
+
+aaFriends[#"David"][#"Best Friend"] := aaFriends[#"Arthur"]
+
+// And test it:
+
+Alert (aaFriends[#"David"][#"Best Friend"][#"Name"])
+Alert (aaFriends[#"David"][#"Best Friend"][#"Work"])
+
+// We can also mix it with the regular Array:
+aaFriends[#"Arthur"][#"Friends"] := Array(1)
+aaFriends[#"Arthur"][#"Friends"][1] := aaFriends[#"David"]
+
+Alert (aaFriends[#"Arthur"][#"Friends"][1][#"Name"])
+```
 
 ### How does it work on the background?
 
@@ -86,22 +90,30 @@ When we create an Associative Array, we are in reality instantiating a Class and
 
 Take a look at it working, this:
 
-    aaFriends := Array(#)
-    aaFriends[#"David"] := Array(#)
-    aaFriends[#"David"][#"Account"] := 187204
+```AdvPL
+
+aaFriends := Array(#)
+aaFriends[#"David"] := Array(#)
+aaFriends[#"David"][#"Account"] := 187204
+```
 
 is translated to this by the precompiler:
 
-    aaFriends := SHash():New()
-    aaFriends:Set("David", SHash():New())
-    aaFriends:Get("David"):Set("Account", 187204)
+```AdvPL
+
+aaFriends := SHash():New()
+aaFriends:Set("David", SHash():New())
+aaFriends:Get("David"):Set("Account", 187204)
+```
 
 The SHash object has the aData array that stores all the data, so you can easily access all the data thought a loop:
 
-    For i := 1 to len(aaFriends:aData)
-        QOut( aaFriends:aData[i][1] +': '+ aaFriends:aData[i][2] )
-    Next
+```AdvPL
 
+For i := 1 to len(aaFriends:aData)
+    QOut( aaFriends:aData[i][1] +': '+ aaFriends:aData[i][2] )
+Next
+```
 
 ## JSON
 
@@ -113,8 +125,11 @@ The SHash object has the aData array that stores all the data, so you can easily
 
 3. Include the header files to any project you want to use it:
 
-        #Include "aarray.ch"
-        #Include "json.ch"
+    ```AdvPL
+
+    #Include "aarray.ch"
+    #Include "json.ch"
+    ```
 
 4. See the functions documentation, it's very easy to use it. ;)
 
@@ -130,16 +145,18 @@ Converts from a JSON string into any value it holds
  
 #### Example:
 
-    cJSON := '{"Products": [{"Name": "Water", "Cost": 1.3}, {"Name": "Bread", "Cost": 4e-1}], "Users": [{"Name": "Arthur", "Comment": "Hello\" \\World"}]}'
+```AdvPL
 
-    aaBusiness := FromJson(cJSON)
+cJSON := '{"Products": [{"Name": "Water", "Cost": 1.3}, {"Name": "Bread", "Cost": 4e-1}], "Users": [{"Name": "Arthur", "Comment": "Hello\" \\World"}]}'
 
-    alert(aaBusiness[#'Products'][1][#'Name']) // Returns -> Water
+aaBusiness := FromJson(cJSON)
 
-    alert(aaBusiness[#'Products'][2][#'Cost']) // Returns -> 0.4
+alert(aaBusiness[#'Products'][1][#'Name']) // Returns -> Water
 
-    alert(aaBusiness[#'Users'][1][#'Comment']) // Returns -> Hello" \World
+alert(aaBusiness[#'Products'][2][#'Cost']) // Returns -> 0.4
 
+alert(aaBusiness[#'Users'][1][#'Comment']) // Returns -> Hello" \World
+```
 
 #### Additional Info:
 
@@ -161,24 +178,30 @@ Accepted values: Strings, Numbers, Logicals, Nil, Arrays and Associative Arrays 
 	 
 #### Example:
 
-    aaBusiness := Array(#)
-    aaBusiness[#'Products'] := Array(2)
-    aaBusiness[#'Products'][1] := Array(#)
-    aaBusiness[#'Products'][1][#'Name'] := "Water"
-    aaBusiness[#'Products'][1][#'Cost'] := 1.3
-    aaBusiness[#'Products'][2] := Array(#)
-    aaBusiness[#'Products'][2][#'Name'] := "Bread"
-    aaBusiness[#'Products'][2][#'Cost'] := 0.4
-    aaBusiness[#'Users'] := Array(1)
-    aaBusiness[#'Users'][1] := Array(#)
-    aaBusiness[#'Users'][1][#'Name'] := "Arthur"
-    aaBusiness[#'Users'][1][#'Comment'] := 'Hello" \World' 
- 
- 
-    alert( ToJson(aaBusiness) )
+```AdvPL
 
-    // Returns: 
-    {"Products": [{"Name": "Water", "Cost": 1.3}, {"Name": "Bread", "Cost": 0.4}], "Users": [{"Name": "Arthur", "Comment": "Hello\" \\World"}]}
+aaBusiness := Array(#)
+aaBusiness[#'Products'] := Array(2)
+aaBusiness[#'Products'][1] := Array(#)
+aaBusiness[#'Products'][1][#'Name'] := "Water"
+aaBusiness[#'Products'][1][#'Cost'] := 1.3
+aaBusiness[#'Products'][2] := Array(#)
+aaBusiness[#'Products'][2][#'Name'] := "Bread"
+aaBusiness[#'Products'][2][#'Cost'] := 0.4
+aaBusiness[#'Users'] := Array(1)
+aaBusiness[#'Users'][1] := Array(#)
+aaBusiness[#'Users'][1][#'Name'] := "Arthur"
+aaBusiness[#'Users'][1][#'Comment'] := 'Hello" \World' 
+
+
+alert( ToJson(aaBusiness) )
+```
+
+Returns:
+
+```json
+{"Products": [{"Name": "Water", "Cost": 1.3}, {"Name": "Bread", "Cost": 0.4}], "Users": [{"Name": "Arthur", "Comment": "Hello\" \\World"}]}
+```
 
 #### Additional Info:
 
@@ -195,11 +218,14 @@ ToJson() Automatically escapes strings, there is no much use of this function un
 
 #### Example:
 
-    cProdName := 'Cool" and \ cool"'
-	
-	cJSON := '{"Product": {"Name": "'+ EscpJsonStr(cProdName) +'"}}'
-	 
-	alert( JsonPrettify(cJSON) ) // -> {"Product": {"Name": "Cool\" and \\ cool\""}}
+```AdvPL
+
+cProdName := 'Cool" and \ cool"'
+
+cJSON := '{"Product": {"Name": "'+ EscpJsonStr(cProdName) +'"}}'
+ 
+alert( JsonPrettify(cJSON) ) // -> {"Product": {"Name": "Cool\" and \\ cool\""}}
+```
 	
 #### Additional Info:
 
@@ -215,24 +241,30 @@ Prettify a JSON string. It will indent and make it more readable
 
 #### Example:
 	
-	cJSON := '{"Products": [{"Name": "Water", "Cost": 1.30}, {"Name": "Bread", "Cost": 0.40}]}'
-	 
-	alert( JsonPrettify(cJSON, 4) )
+```AdvPL
+
+cJSON := '{"Products": [{"Name": "Water", "Cost": 1.30}, {"Name": "Bread", "Cost": 0.40}]}'
+ 
+alert( JsonPrettify(cJSON, 4) )
+```
 	
 Result:
-	
-	{
-	    "Products": [
-	        {
-	            "Name": "Water",
-	            "Cost": 1.30
-	        },
-	        {
-	            "Name": "Bread",
-	            "Cost": 0.40
-	        }
-	    ]
-	}
+
+```json
+
+{
+    "Products": [
+        {
+            "Name": "Water",
+            "Cost": 1.30
+        },
+        {
+            "Name": "Bread",
+            "Cost": 0.40
+        }
+    ]
+}
+```
 
 #### Additional Info:
 
@@ -251,20 +283,26 @@ Comments are not allowed in the JSON specification, but we can remove them with 
 
 Allowed comments:
 
-	// Single line comment
-	 
-	/*  Multiple Lines
-	    Multiple Lines
-	    Multiple Lines   */
+```javascript
+
+// Single line comment
+ 
+/*  Multiple Lines
+    Multiple Lines
+    Multiple Lines   */
+```
 
 #### Example:
 
-	cJSON := '{' + CRLF
-	cJSON += '  // this is a comment' + CRLF
-	cJSON += '  "Products": [35, 50]' + CRLF
-	cJSON += '}'
-	
-	cJSON := JsonMinify(cJSON) // -> returns '{"Products":[35,50]}'
+```AdvPL
+
+cJSON := '{' + CRLF
+cJSON += '  // this is a comment' + CRLF
+cJSON += '  "Products": [35, 50]' + CRLF
+cJSON += '}'
+
+cJSON := JsonMinify(cJSON) // -> returns '{"Products":[35,50]}'
+```
 
 #### Additional Info:
 
@@ -286,9 +324,11 @@ Reads JSON from a JSON file.
 
 #### Example:
 
-	aaConf := ReadJsonFile("D:\TOTVS\Config.json")
-	alert(aaConf[#'Product'][35][#'name'])
+```AdvPL
 
+aaConf := ReadJsonFile("D:\TOTVS\Config.json")
+alert(aaConf[#'Product'][35][#'name'])
+```
 
 #### Additional Info:
 

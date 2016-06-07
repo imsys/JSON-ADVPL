@@ -36,7 +36,10 @@ This documentation can also be found in [English](README.md).
 
 3. Inclua o arquivo cabeçalho em todo projeto que precisar usá-lo:
 
-        #Include "aarray.ch"
+    ```AdvPL
+
+    #Include "aarray.ch"
+    ```
 
 4. Use-o. ;)
 
@@ -47,37 +50,41 @@ This documentation can also be found in [English](README.md).
 
 Exemplo:
 
-    // Inicia um Vetor Associativo
-    aaFriends := Array(#)
-    
-    // Inicia outro Vetor Associativo em cima do anterior
-    aaFriends[#"Arthur"] := Array(#)
-    
-    // Define valores:
-    aaFriends[#"Arthur"][#"Name"] := "Arthur"
-    aaFriends[#"Arthur"][#"Account"] := 230251
-    aaFriends[#"Arthur"][#"Work"] := "Software Developer"
-    
-    // Inicia um novo Vetor Associativo e define valores
-    aaFriends[#"David"] := Array(#)
-    aaFriends[#"David"][#"Name"] := "David"
-    aaFriends[#"David"][#"Account"] := 187204
-    aaFriends[#"David"][#"Work"] := "Web Designer"
-    
-    // Vamos fazer algo interessante!
-    
-    aaFriends[#"David"][#"Best Friend"] := aaFriends[#"Arthur"]
-    
-    // E testar:
-    
-    Alert (aaFriends[#"David"][#"Best Friend"][#"Name"])
-    Alert (aaFriends[#"David"][#"Best Friend"][#"Work"])
-    
-    // Também podemos misturá-los com Vetores normais:
-    aaFriends[#"Arthur"][#"Friends"] := Array(1)
-    aaFriends[#"Arthur"][#"Friends"][1] := aaFriends[#"David"]
-    
-    Alert (aaFriends[#"Arthur"][#"Friends"][1][#"Name"])
+```AdvPL
+
+// Inicia um Vetor Associativo
+aaFriends := Array(#)
+
+// Inicia outro Vetor Associativo em cima do anterior
+aaFriends[#"Arthur"] := Array(#)
+
+// Define valores:
+aaFriends[#"Arthur"][#"Name"] := "Arthur"
+aaFriends[#"Arthur"][#"Account"] := 230251
+aaFriends[#"Arthur"][#"Work"] := "Software Developer"
+
+// Inicia um novo Vetor Associativo e define valores
+aaFriends[#"David"] := Array(#)
+aaFriends[#"David"][#"Name"] := "David"
+aaFriends[#"David"][#"Account"] := 187204
+aaFriends[#"David"][#"Work"] := "Web Designer"
+
+// Vamos fazer algo interessante!
+
+aaFriends[#"David"][#"Best Friend"] := aaFriends[#"Arthur"]
+
+// E testar:
+
+Alert (aaFriends[#"David"][#"Best Friend"][#"Name"])
+Alert (aaFriends[#"David"][#"Best Friend"][#"Work"])
+
+// Também podemos misturá-los com Vetores normais:
+aaFriends[#"Arthur"][#"Friends"] := Array(1)
+aaFriends[#"Arthur"][#"Friends"][1] := aaFriends[#"David"]
+
+Alert (aaFriends[#"Arthur"][#"Friends"][1][#"Name"])
+
+```
 
 
 ### Como funciona internamente
@@ -86,22 +93,29 @@ Quando criamos um Vetor Associativo, estamos na verdade instanciando uma classe 
 
 Dê uma olhada:
 
-    aaFriends := Array(#)
-    aaFriends[#"David"] := Array(#)
-    aaFriends[#"David"][#"Account"] := 187204
+```AdvPL
+
+aaFriends := Array(#)
+aaFriends[#"David"] := Array(#)
+aaFriends[#"David"][#"Account"] := 187204
+```
 
 Isto é traduzido por isso pelo pré-compilador:
 
-    aaFriends := SHash():New()
-    aaFriends:Set("David", SHash():New())
-    aaFriends:Get("David"):Set("Account", 187204)
+```AdvPL
+
+aaFriends := SHash():New()
+aaFriends:Set("David", SHash():New())
+aaFriends:Get("David"):Set("Account", 187204)
+```
 
 Os objetos SHash contêm o vetor SHash que armazena todos os dados, então é muito fácil acessar tudo através de um loop:
 
-    For i := 1 to len(aaFriends:aData)
-        QOut( aaFriends:aData[i][1] +': '+ aaFriends:aData[i][2] )
-    Next
-
+```AdvPL
+For i := 1 to len(aaFriends:aData)
+    QOut( aaFriends:aData[i][1] +': '+ aaFriends:aData[i][2] )
+Next
+```
 
 ## JSON
 
@@ -113,8 +127,11 @@ Os objetos SHash contêm o vetor SHash que armazena todos os dados, então é mu
 
 3. Inclua os arquivos de cabeçalhos em todo projeto que precisar usá-lo:
 
-        #Include "aarray.ch"
-        #Include "json.ch"
+    ```AdvPL
+    
+    #Include "aarray.ch"
+    #Include "json.ch"
+    ```
 
 4. Veja a documentação das funções, é bem facil. ;)
 
@@ -130,15 +147,18 @@ Converte strings JSON em qualquer valor que contenha.
  
 #### Exemplo:
 
-    cJSON := '{"Products": [{"Name": "Water", "Cost": 1.3}, {"Name": "Bread", "Cost": 4e-1}], "Users": [{"Name": "Arthur", "Comment": "Hello\" \\World"}]}'
+```AdvPL
 
-    aaBusiness := FromJson(cJSON)
+cJSON := '{"Products": [{"Name": "Water", "Cost": 1.3}, {"Name": "Bread", "Cost": 4e-1}], "Users": [{"Name": "Arthur", "Comment": "Hello\" \\World"}]}'
 
-    alert(aaBusiness[#'Products'][1][#'Name']) // Retorna -> Water
+aaBusiness := FromJson(cJSON)
 
-    alert(aaBusiness[#'Products'][2][#'Cost']) // Retorna -> 0.4
+alert(aaBusiness[#'Products'][1][#'Name']) // Retorna -> Water
 
-    alert(aaBusiness[#'Users'][1][#'Comment']) // Retorna -> Hello" \World
+alert(aaBusiness[#'Products'][2][#'Cost']) // Retorna -> 0.4
+
+alert(aaBusiness[#'Users'][1][#'Comment']) // Retorna -> Hello" \World
+```
 
 
 #### Informações Adicionais:
@@ -162,24 +182,31 @@ Valores aceitos: Strings, Números, Lógicos, Nil, Vetores e Vetores Associativo
 	 
 #### Exemplo:
 
-    aaBusiness := Array(#)
-    aaBusiness[#'Products'] := Array(2)
-    aaBusiness[#'Products'][1] := Array(#)
-    aaBusiness[#'Products'][1][#'Name'] := "Water"
-    aaBusiness[#'Products'][1][#'Cost'] := 1.3
-    aaBusiness[#'Products'][2] := Array(#)
-    aaBusiness[#'Products'][2][#'Name'] := "Bread"
-    aaBusiness[#'Products'][2][#'Cost'] := 0.4
-    aaBusiness[#'Users'] := Array(1)
-    aaBusiness[#'Users'][1] := Array(#)
-    aaBusiness[#'Users'][1][#'Name'] := "Arthur"
-    aaBusiness[#'Users'][1][#'Comment'] := 'Hello" \World' 
- 
- 
-    alert( ToJson(aaBusiness) )
+```AdvPL
 
-    // Retorna: 
-    {"Products": [{"Name": "Water", "Cost": 1.3}, {"Name": "Bread", "Cost": 0.4}], "Users": [{"Name": "Arthur", "Comment": "Hello\" \\World"}]}
+aaBusiness := Array(#)
+aaBusiness[#'Products'] := Array(2)
+aaBusiness[#'Products'][1] := Array(#)
+aaBusiness[#'Products'][1][#'Name'] := "Water"
+aaBusiness[#'Products'][1][#'Cost'] := 1.3
+aaBusiness[#'Products'][2] := Array(#)
+aaBusiness[#'Products'][2][#'Name'] := "Bread"
+aaBusiness[#'Products'][2][#'Cost'] := 0.4
+aaBusiness[#'Users'] := Array(1)
+aaBusiness[#'Users'][1] := Array(#)
+aaBusiness[#'Users'][1][#'Name'] := "Arthur"
+aaBusiness[#'Users'][1][#'Comment'] := 'Hello" \World' 
+
+
+alert( ToJson(aaBusiness) )
+```
+
+Retorna: 
+
+```json
+
+{"Products": [{"Name": "Water", "Cost": 1.3}, {"Name": "Bread", "Cost": 0.4}], "Users": [{"Name": "Arthur", "Comment": "Hello\" \\World"}]}
+```
 
 #### Informações Adicionais:
 
@@ -196,11 +223,14 @@ ToJson() automaticamente escapa strings, essa função não tem muita necessidad
 
 #### Exemplo:
 
-    cProdName := 'Cool" and \ cool"'
-	
-	cJSON := '{"Product": {"Name": "'+ EscpJsonStr(cProdName) +'"}}'
-	 
-	alert( JsonPrettify(cJSON) ) // -> {"Product": {"Name": "Cool\" and \\ cool\""}}
+```AdvPL
+
+cProdName := 'Cool" and \ cool"'
+
+cJSON := '{"Product": {"Name": "'+ EscpJsonStr(cProdName) +'"}}'
+
+alert( JsonPrettify(cJSON) ) // -> {"Product": {"Name": "Cool\" and \\ cool\""}}
+```
 	
 #### Informações Adicionais:
 
@@ -216,24 +246,29 @@ Embeleza uma string JSON, ou seja, indenta e deixa a leitura mais fácil.
 
 #### Exemplo:
 	
-	cJSON := '{"Products": [{"Name": "Water", "Cost": 1.30}, {"Name": "Bread", "Cost": 0.40}]}'
-	 
-	alert( JsonPrettify(cJSON, 4) )
+```AdvPL
+cJSON := '{"Products": [{"Name": "Water", "Cost": 1.30}, {"Name": "Bread", "Cost": 0.40}]}'
+
+alert( JsonPrettify(cJSON, 4) )
+```
 	
 Resulta em:
-	
-	{
-	    "Products": [
-	        {
-	            "Name": "Water",
-	            "Cost": 1.30
-	        },
-	        {
-	            "Name": "Bread",
-	            "Cost": 0.40
-	        }
-	    ]
-	}
+
+```json
+
+{
+    "Products": [
+        {
+            "Name": "Water",
+            "Cost": 1.30
+        },
+        {
+            "Name": "Bread",
+            "Cost": 0.40
+        }
+    ]
+}
+```
 
 #### Informações Adicionais:
 
@@ -252,20 +287,26 @@ Comentários não são permitidos dentro da especificação JSON, mas usá-los e
 
 Comentários permitidos:
 
-	// Comentários de uma linha
-	 
-	/*  Comentários
-	    de Múltiplas
-	    Linhas         */
+```javascript
+
+// Comentários de uma linha
+ 
+/*  Comentários
+    de Múltiplas
+    Linhas         */
+```
 
 #### Exemplo:
 
-	cJSON := '{' + CRLF
-	cJSON += '  // Isto é um comentário ' + CRLF
-	cJSON += '  "Products": [35, 50]' + CRLF
-	cJSON += '}'
-	
-	cJSON := JsonMinify(cJSON) // -> Retorna '{"Products":[35,50]}'
+```AdvPL
+
+cJSON := '{' + CRLF
+cJSON += '  // Isto é um comentário ' + CRLF
+cJSON += '  "Products": [35, 50]' + CRLF
+cJSON += '}'
+
+cJSON := JsonMinify(cJSON) // -> Retorna '{"Products":[35,50]}'
+```
 
 #### Informações Adicionais:
 
@@ -287,9 +328,11 @@ Lê um arquivo JSON.
 
 #### Exemplo:
 
-	aaConf := ReadJsonFile("D:\TOTVS\Config.json")
-	alert(aaConf[#'Product'][35][#'name'])
+```AdvPL
 
+aaConf := ReadJsonFile("D:\TOTVS\Config.json")
+alert(aaConf[#'Product'][35][#'name'])
+```
 
 #### Informações Adicionais:
 
