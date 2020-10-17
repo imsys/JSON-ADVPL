@@ -1,6 +1,11 @@
 JSON and Associative Arrays for AdvPL
 =====================================
 
+<p align="center">
+    <img src="logo-totvs-json.PNG" width="350" title="Logo TOTVS">
+</p>
+
+
 JSON and Associative Arrays are very useful for interchanging data between different programs.
 
 This library is Free Software under LGPLv3 or later.
