@@ -1,4 +1,6 @@
-![ ](logo-totvs-json.PNG)
+<p align="center">
+    ![ ](logo-totvs-json.PNG)
+</p>
 JSON and Associative Arrays for AdvPL
 =====================================
 
