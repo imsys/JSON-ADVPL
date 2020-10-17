@@ -1,4 +1,3 @@
-![ ](.\logo-totvs-json.PNG)
 JSON e Vetores Associativos para AdvPL
 ======================================
 
