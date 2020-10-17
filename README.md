@@ -1,5 +1,5 @@
 <p align="center">
-    ![ ](logo-totvs-json.PNG)
+    <img src="logo-totvs-json.PNG" width="350" title="Logo TOTVS">
 </p>
 JSON and Associative Arrays for AdvPL
 =====================================
